@@ -11,8 +11,14 @@
   },
   "scripts": {},
   "dependencies": {
+    "express": "^4.16.3",
+    "jquery": "^3.3.1",
     "react": "^16.4.2",
     "react-dom": "^16.4.2"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "webpack": "^4.17.2",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-middleware": "^3.2.0"
+  }
 }
