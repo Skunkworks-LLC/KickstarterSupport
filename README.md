@@ -4,10 +4,9 @@
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/Skunkworks-LLC/KickstarterSupport
+  - https://github.com/Skunkworks-LLC/KickstarterIntroduction
+  - https://github.com/Skunkworks-LLC/KickstarterDescription
 
 ## Table of Contents
 
@@ -17,7 +16,11 @@
 
 ## Usage
 
-> Some usage instructions
+> To create the proxy server, you must clone down all 3 components linked to above. Start a server
+> for each of the three components and then start the proxy components. The proxy server will make a
+> request to the other servers and then load the components onto the page. 
+
+> Then enjoy!
 
 ## Requirements
 
