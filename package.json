@@ -1,17 +1,15 @@
 {
-  "name": "",
-  "version": "",
-  "description": "",
-  "author": "",
-  "license": "",
+  "name": "KickstarterSupport",
+  "version": "1.0.0",
+  "description": "The Support Component of the Kickstarter Page",
+  "main": "./client/PledgeList.jsx",
+  "author": "Malcolm Jones",
+  "license": "UNLICENSED",
   "engines": {
     "node": ">=6.13.0"
   },
-  "scripts": {
-  },
-  "dependencies": {
-  },
-  "devDependencies": {
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
-  }
+  "scripts": {},
+  "dependencies": {},
+  "homepage": "https://github.com/Skunkworks-LLC/KickstarterSupport",
+  "devDependencies": {}
 }
