@@ -5,11 +5,14 @@
   "main": "./client/PledgeList.jsx",
   "author": "Malcolm Jones",
   "license": "UNLICENSED",
+  "homepage": "https://github.com/Skunkworks-LLC/KickstarterSupport",
   "engines": {
     "node": ">=6.13.0"
   },
   "scripts": {},
-  "dependencies": {},
-  "homepage": "https://github.com/Skunkworks-LLC/KickstarterSupport",
+  "dependencies": {
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2"
+  },
   "devDependencies": {}
 }
