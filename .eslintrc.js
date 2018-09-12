@@ -6,5 +6,16 @@
  */
 
 module.exports = {
-  "extends": "airbnb"
+  "env": { "es6": true },
+  "extends": ["airbnb", "plugin:jsx-a11y/recommended", "plugin:react/recommended"],
+  "rules": {
+    "semi": ["error", "always"],
+    "no-console": "off",
+  },
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "ecmaFeatures": {
+      "jsx": true
+    },
+  },
 };
