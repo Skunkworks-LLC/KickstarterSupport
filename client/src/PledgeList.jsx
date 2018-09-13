@@ -23,21 +23,17 @@ class PledgeList extends React.Component {
       data: JSON.stringify({ currentProjectId }),
     }).then(({ data }) => {
       this.importData(data);
-    }).catch((err) => {
-      return console.error(err);
-    });
+    }).catch(err => console.error(err));
   }
 
   importData({ projectId, projectName, pledges }) {
-    this.setState({ projectId, projectName, pledges }, () => {
-      console.log('heres the state', this.state);
-    });
+    this.setState({ projectId, projectName, pledges });
   }
 
   render() {
     const { pledges } = this.state;
     const Pledges = (pledges && pledges.length !== 0)
-      ? pledges.map((pledge, index) => <Pledge data={pledge} key={index} />)
+      ? pledges.map((pledge, index) => <Pledge pledgeInfo={pledge} key={index} />)
       : <div>Invalid Product Page</div>;
     return Pledges;
   }
