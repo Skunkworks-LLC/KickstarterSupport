@@ -1,17 +1,13 @@
 const express = require('express');
-const models = require('./../database/model.js');
 const path = require('path');
+const models = require('./../database/model.js');
 
 const app = express();
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+const usePath = path.join(__dirname, '/../client/dist');
+app.use(express.json(), express.urlencoded({ extended: true }), express.static(usePath));
 
-var usePath = path.join(__dirname, '/../client/dist');
-app.use(express.static(usePath));
-
-app.get('/project/*', (req, res) => {
-  const projectId = req.url.slice(9);
-
+app.get('/projects/:id', (req, res) => {
+  const projectId = req.params.id;
   models.queryOne(projectId, (err, pledgeList) => {
     if (err) {
       return console.error(err);

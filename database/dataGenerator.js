@@ -51,8 +51,6 @@ const SaveAPledgeList = (index) => {
     pledgeListData.push(pledge);
   }
   const pledgeList = fakePledgeList(pledgeListData, index);
-  // console.log('Created a pledge:', index);
-  // let temp = new model(PledgeListData);
   return pledgeList;
 };
 
@@ -75,6 +73,8 @@ const SaveAllPledgeLists = () => {
 };
 
 SaveAllPledgeLists();
+
+
 // module.exports = fakePledgeList;
 
 // ****** For a More Advanced Schema ******* */
