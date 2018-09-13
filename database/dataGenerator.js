@@ -30,9 +30,9 @@ const fakePledge = () => (
   }
 );
 
-const fakePledgeList = (pledges) => (
+const fakePledgeList = (pledges, index) => (
   {
-    projectId: faker.random.number(),
+    projectId: index,
     projectName: faker.commerce.productName(),
     pledges,
   }
@@ -45,7 +45,7 @@ const SaveAPledgeList = (index) => {
     const pledge = fakePledge();
     pledgeListData.push(pledge);
   }
-  const pledgeList = fakePledgeList(pledgeListData);
+  const pledgeList = fakePledgeList(pledgeListData, index);
   // console.log('Created a pledge:', index);
   // let temp = new model(PledgeListData);
   return pledgeList;
@@ -58,6 +58,7 @@ const SaveAllPledgeLists = () => {
     allProjects.push(temp);
   }
 
+  // calls any validators in schema, add more validators
   model.create(allProjects, (err, projects) => {
     if (err) {
       return console.error(err);
