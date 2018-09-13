@@ -1,13 +1,15 @@
 /* global React */
+import Availability from './Availability';
+
 
 class Pledge extends React.Component {
   constructor(props) {
     super(props);
 
-    const { pledgeInfo } = this.props;
+    // const { pledgeInfo } = this.props;
     this.state = {
-      isPledgeAvailable: pledgeInfo.available,
-      numBackers: pledgeInfo.pledgeBackers,
+      // isPledgeAvailable: pledgeInfo.available,
+      // numBackers: pledgeInfo.pledgeBackers,
     };
   }
 
@@ -15,16 +17,16 @@ class Pledge extends React.Component {
     const { pledgeInfo } = this.props;
     const {
       minimumPledgeAmount, pledgeTitle, pledgeDescription, pledgeRewards,
-      estimatedShipping, validLocations,
+      estimatedShipping, validLocations, available, pledgeBackers,
     } = pledgeInfo;
 
-    const { isPledgeAvailable, numBackers } = this.state;
+    // const { isPledgeAvailable, numBackers } = this.state;
 
     return (
       <div className="pledgeContainer">
         An individual pledge
         <div className="pledgeHeaderFont pledgeAmount">
-          <span >Pledge $</span>
+          <span>Pledge $</span>
           {minimumPledgeAmount}
           <span> or more</span>
         </div>
@@ -42,16 +44,7 @@ class Pledge extends React.Component {
           <div className="pledgeSubheaderFont">SHIPS TO</div>
           <div className="pledgeTextFont">{validLocations}</div>
         </div>
-        <div>
-          {isPledgeAvailable === true
-            ? (
-              <div className="pledgeSubheaderFont" id="pledgeAvailable">
-                {numBackers}
-                <span> backers</span>
-              </div>
-            )
-            : <div className="pledgeTextFont" id="pledgeNotAvailable">Reward no longer Available</div>}
-        </div>
+        <Availability availability={available} numBackers={pledgeBackers} />
         <br />
         <br />
       </div>

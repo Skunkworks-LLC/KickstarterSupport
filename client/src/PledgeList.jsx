@@ -14,7 +14,7 @@ class PledgeList extends React.Component {
   }
 
   componentWillMount(currentProjectId = 1) {
-    const projectUrl = path.join('/project/', currentProjectId.toString());
+    const projectUrl = path.join('/projects/', currentProjectId.toString());
 
     axios({
       method: 'get',
