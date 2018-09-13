@@ -13,7 +13,11 @@ const fakePledge = () => (
     minimumPledgeAmount: faker.random.number(),
     pledgeTitle: faker.commerce.product(),
     pledgeDescription: faker.lorem.paragraph(),
-    pledgeBackers: faker.random.number(),
+    pledgeRewards: [
+      faker.commerce.product(),
+      faker.commerce.product(),
+      faker.commerce.product(),
+    ],
     estimatedShipping: faker.date.future(),
     validLocations: [
       faker.random.locale(),
@@ -27,6 +31,7 @@ const fakePledge = () => (
       faker.random.locale(),
       faker.random.locale(),
     ],
+    pledgeBackers: faker.random.number(),
   }
 );
 
