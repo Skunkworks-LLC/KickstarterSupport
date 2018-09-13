@@ -12,12 +12,14 @@
   "scripts": {
     "start": "nodemon server/server.js",
     "build": "webpack --watch -d",
+    "populateData": "node ./database/dataGenerator.js",
     "test:snapshot": "jest --config ./test/jest.config.json",
     "test:snapshot:watch": "npm run test:snapshot -- --watch"
   },
   "dependencies": {
     "axios": "^0.18.0",
     "express": "^4.16.3",
+    "faker": "^4.1.0",
     "jquery": "^3.3.1",
     "mongodb": "^3.1.4",
     "mongoose": "^5.2.13",
@@ -37,7 +39,6 @@
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.11.1",
-    "faker": "^4.1.0",
     "jest": "^23.5.0",
     "json-schema-faker": "^0.5.0-rc15",
     "react-test-renderer": "^16.5.0",
