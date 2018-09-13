@@ -2,9 +2,6 @@ import axios from 'axios';
 import React from 'react';
 import path from 'path';
 import Pledge from './Pledge';
-// const Pledge = require('./Pledge.jsx');
-
-const server = 'http://localhost:3000';
 
 class PledgeList extends React.Component {
   constructor(props) {
@@ -17,8 +14,7 @@ class PledgeList extends React.Component {
   }
 
   componentWillMount(currentProjectId = 1) {
-    const projectUrl = path.join(server, '/project/', currentProjectId);
-    // const projectUrl = server + '/project/' + currentProjectId;
+    const projectUrl = path.join('/project/', currentProjectId.toString());
 
     axios({
       method: 'get',
@@ -34,19 +30,16 @@ class PledgeList extends React.Component {
 
   importData({ projectId, projectName, pledges }) {
     this.setState({ projectId, projectName, pledges }, () => {
-      // console.log('heres the state', this.state);
+      console.log('heres the state', this.state);
     });
   }
 
   render() {
-    var Pledges = this.pledges === 0 ?
-      this.pledges.map((pledge, index) => <Pledge data={pledge} key={index} />) :
-      <div>Hey There</div>;
-    return (
-      <div className='container'>
-        {Pledges}
-      </div>
-    );
+    const { pledges } = this.state;
+    const Pledges = (pledges && pledges.length !== 0)
+      ? pledges.map((pledge, index) => <Pledge data={pledge} key={index} />)
+      : <div>Invalid Product Page</div>;
+    return Pledges;
   }
 }
 
