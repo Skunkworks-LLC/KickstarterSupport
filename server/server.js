@@ -9,13 +9,23 @@ app.use(express.urlencoded({ extended: true }));
 var usePath = path.join(__dirname, '/../client/dist');
 app.use(express.static(usePath));
 
-app.get('/', (req, res) => {
+app.get('/project/*', (req, res) => {
+  const projectId = req.url.slice(9);
 
-  models.queryAll((err, results) => {
+  models.queryOne(projectId, (err, pledgeList) => {
     if (err) {
       return console.error(err);
     }
-    return res.send(results);
+    return res.send(pledgeList[0]);
+  });
+});
+
+app.get('/', (req, res) => {
+  models.queryAll((err, pledgeLists) => {
+    if (err) {
+      return console.error(err);
+    }
+    return res.send(pledgeLists);
   });
 });
 
