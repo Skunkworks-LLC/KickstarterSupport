@@ -1,0 +1,73 @@
+/* --------------------------------------
+---------- Pledge Input Bar -------------
+-------------------------------------- */
+.pledgeBoxContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: space-around;
+  
+  border: 1.5px solid rgba(211,211,211, 0.5);
+  height: 200px;
+  width: 300px;
+  -webkit-background-clip: padding-box; /* for Safari */
+  background-clip: padding-box; /* for IE9+, Firefox 4+, Opera, Chrome */
+}
+
+/* --------- Full-length Component ---------- */
+
+.pledgeBoxComponentSizing {
+  height: 40px;
+  line-height: 40px;
+  /* width: 200px; */
+  flex-basis: 80%;
+
+  font-family: "Maison Neue Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+/* ------------- Input Bar ------------- */
+
+.inputBarContainer {  
+  display: flex;
+  flex-direction: row;
+  /* flex-wrap: wrap; */
+  justify-content: center;
+  align-content: space-around;
+  
+}
+
+.inputBarContainer .inputCurrency {
+  text-align: center;
+  flex: 1;
+  border: 1.5px solid rgba(211,211,211, 0.5);
+  color: rgba(211,211,211, 0.5);
+}
+
+.pledgeInputBar {
+  flex: 4;
+  border: 1.5px solid rgba(211,211,211, 0.5);
+}
+
+.inFocusGreen {
+  border-color: green;
+}
+
+.inBlurGray {
+  border-color: lightgrey;
+  border: 1.5px solid rgba(211,211,211, 0.5);
+}
+
+/* ---------- Input Button ------------- */
+
+.pledgeBoxContainer .inputButton {
+  color: rgba(250,250,250, .8);
+  background-color: green;
+}
+
+.pledgeBoxContainer .hoveredInputButton {
+  color: rgba(250,250,250, .8);
+  background-color: darkgreen;
+}
