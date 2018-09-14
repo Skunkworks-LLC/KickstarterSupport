@@ -2,6 +2,7 @@ import axios from 'axios';
 import React from 'react';
 import path from 'path';
 import Pledge from './Pledge';
+import PledgeInput from './PledgeInput';
 
 class PledgeList extends React.Component {
   constructor(props) {
@@ -35,7 +36,12 @@ class PledgeList extends React.Component {
     const Pledges = (pledges && pledges.length !== 0)
       ? pledges.map((pledge, index) => <Pledge pledgeInfo={pledge} key={index} />)
       : <div>Invalid Product Page</div>;
-    return Pledges;
+    return (
+      <div>
+        <PledgeInput />
+        {Pledges}
+      </div>
+    );
   }
 }
 
