@@ -1,4 +1,4 @@
-/* global React */
+import React from 'react';
 
 class Availability extends React.Component {
   constructor(props) {

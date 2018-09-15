@@ -1,4 +1,4 @@
-/* global React */
+import React from 'react';
 
 class PledgeInput extends React.Component {
   static buttonClickHandler() {
