@@ -1,6 +1,21 @@
 /* --------------------------------------
 ---------- Pledge Input Bar -------------
 -------------------------------------- */
+
+/* ---------- Font ------------- */
+
+body {
+  font-family: 'Muli', sans-serif;
+  background-color: #FBFBFA;
+  font-family: 300;
+}
+
+button:focus, input:focus {
+  outline: 0;
+}
+
+/* ---------- Pledge Box ------------ */
+
 .pledgeBoxContainer {
   display: flex;
   flex-direction: row;
@@ -15,15 +30,20 @@
   background-clip: padding-box; /* for IE9+, Firefox 4+, Opera, Chrome */
 }
 
+.extended {
+  height: 500px;
+}
+
+.pledgeBoxContainer:hover {
+  border: 1.5px solid rgba(0,0,0, 0.5);
+}
+
 /* --------- Full-length Component ---------- */
 
 .pledgeBoxComponentSizing {
   height: 40px;
   line-height: 40px;
-  /* width: 200px; */
   flex-basis: 80%;
-
-  font-family: "Maison Neue Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   vertical-align: middle;
 }
@@ -33,41 +53,51 @@
 .inputBarContainer {  
   display: flex;
   flex-direction: row;
-  /* flex-wrap: wrap; */
   justify-content: center;
   align-content: space-around;
-  
+  border: 1.5px solid rgba(211,211,211, 0.5);
 }
 
-.inputBarContainer .inputCurrency {
+#currency {
   text-align: center;
   flex: 1;
   border: 1.5px solid rgba(211,211,211, 0.5);
+  border-bottom: 0px;
+  border-left: 0px;
+  border-top:0px;
   color: rgba(211,211,211, 0.5);
+}
+.inputBarContainer:hover #currency {
+  border: 1.5px solid #009E74;
+  border-bottom: 0px;
+  border-left: 0px;
+  border-top:0px;
+}
+.inputBarContainer:hover {
+  border-color: #009E74;
 }
 
 .pledgeInputBar {
   flex: 4;
-  border: 1.5px solid rgba(211,211,211, 0.5);
-}
-
-.inFocusGreen {
-  border-color: green;
-}
-
-.inBlurGray {
-  border-color: lightgrey;
-  border: 1.5px solid rgba(211,211,211, 0.5);
+  border: 0px;
 }
 
 /* ---------- Input Button ------------- */
 
-.pledgeBoxContainer .inputButton {
-  color: rgba(250,250,250, .8);
-  background-color: green;
+ button {
+  color: rgba(250,250,250, .9);
+  background-color: #009E74;
 }
 
-.pledgeBoxContainer .hoveredInputButton {
-  color: rgba(250,250,250, .8);
-  background-color: darkgreen;
+button:hover {
+  color: rgba(250,250,250, .9);
+  background-color: #037362;
+  position: relative;
+  top: -1px;
+}
+
+/* ---------- Font ------------- */
+.pledgeNoRewardFont {
+  font-size: 20px;
+  line-height: 1.4;
 }
