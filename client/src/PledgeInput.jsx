@@ -1,4 +1,6 @@
 import React from 'react';
+import InputBox from './InputBox';
+import ContinueButton from './ContinueButton';
 
 class PledgeInput extends React.Component {
   static buttonClickHandler() {
@@ -9,37 +11,12 @@ class PledgeInput extends React.Component {
     super(props);
     this.state = {
       currentPledgeAmount: 0,
-      inputBarContainerClasses: 'inputBarContainer pledgeBoxComponentSizing',
-      inputBarClasses: 'pledgeInputBar',
-      buttonClasses: 'inputButton pledgeBoxComponentSizing',
     };
   }
 
   onChangeInputBarHandler(event) {
     const inputBarText = Number(event.target.value);
     this.setState({ currentPledgeAmount: inputBarText });
-  }
-
-  inFocusGreen(event) {
-    const inputContainerStyleClasses = 'pledgeInputBar inFocusGreen';
-    this.setState({ inputBarClasses: inputContainerStyleClasses }, () => {
-      console.log('reset the state');
-    });
-  }
-
-  inBlurGray(event) {
-    const inputContainerStyleClasses = 'pledgeInputBar inBlurGray';
-    this.setState({ inputBarContainerClasses: inputContainerStyleClasses });
-  }
-
-  buttonColorLightGreen() {
-    const buttonStyleClasses = 'inputButton pledgeBoxComponentSizing';
-    this.setState({ buttonClasses: buttonStyleClasses });
-  }
-
-  buttonColorDarkGreen() {
-    const buttonStyleClasses = 'hoveredInputButton pledgeBoxComponentSizing';
-    this.setState({ buttonClasses: buttonStyleClasses });
   }
 
   voidFunction() {
@@ -50,39 +27,12 @@ class PledgeInput extends React.Component {
   }
 
   render() {
-    const { buttonClasses, inputBarContainerClasses, inputBarClasses } = this.state;
-    // const buttonClickHandler = this.buttonClickHandler.bind(this);
-    const buttonColorDarkGreen = this.buttonColorDarkGreen.bind(this);
-    const buttonColorLightGreen = this.buttonColorLightGreen.bind(this);
-    const inFocusGreen = this.inFocusGreen.bind(this);
-    const inBlurGray = this.inBlurGray.bind(this);
     const onChangeInputBarHandler = this.onChangeInputBarHandler.bind(this);
-
-    // console.log('the button color function:', buttonColorLightGreen);
     return (
-      <div
-        className="pledgeBoxContainer pledgeHeaderFont"
-      >
-        <div className="">Making a pledge without a reward</div>
-        <div className={inputBarContainerClasses}>
-          <div className="inputCurrency">$</div>
-          <input
-            className={inputBarContainerClasses}
-            onChange={e => onChangeInputBarHandler(e)}
-            onMouseEnter={e => inFocusGreen(e)}
-            onMouseLeave={e => inBlurGray(e)}
-            defaultValue={10}
-          />
-        </div>
-        <button
-          className={buttonClasses}
-          // onClick={buttonClickHandler}
-          onMouseEnter={buttonColorDarkGreen}
-          onMouseLeave={buttonColorLightGreen}
-          type="button"
-        >
-          Continue
-        </button>
+      <div className="pledgeBoxContainer">
+        <div className="pledgeBoxHeaderFont pledgeBoxComponentSizing">Make a pledge without a reward</div>
+        <InputBox onChangeInputBarHandler={onChangeInputBarHandler} />
+        <ContinueButton />
       </div>
     );
   }
