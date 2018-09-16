@@ -14,6 +14,7 @@ class PledgeList extends React.Component {
     };
   }
 
+  //cool
   componentWillMount(currentProjectId = 1) {
     const projectUrl = path.join('/projects/', currentProjectId.toString());
 
