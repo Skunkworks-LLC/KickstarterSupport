@@ -14,16 +14,35 @@ class Availability extends React.Component {
   render() {
     const { isPledgeAvailable, numBackers } = this.state;
     const Status = isPledgeAvailable
-      ? (
-        <div className="pledgeSubheaderFont" id="pledgeAvailable">
-          {numBackers}
+      ? (<div></div>)
+      : (
+        <div className="pledgeTextFont" id="pledgeNotAvailable">Reward no longer available</div>
+      );
+
+    return (
+      <div className="pledgeSubheaderFont pledgeBoxComponentSizing" id="alightLeft">
+        {Status}
+        <div className="noBottomMargin pledgeBoxComponentSizing">
+          {numBackers + ' '}
           <span> backers</span>
         </div>
-      )
-      : <div className="pledgeTextFont" id="pledgeNotAvailable">Reward no longer Available</div>;
-
-    return Status;
+      </div>
+    );
   }
 }
 
 export default Availability;
+
+
+// const Status = isPledgeAvailable
+//       ? (
+//         <div className="pledgeSubheaderFont pledgeBoxComponentSizing shippingInfoContainer" id="pledgeAvailable">
+//           {numBackers + ' '}
+//           <span> backers</span>
+//         </div>
+//       )
+//       : (
+//         <div className="pledgeBoxComponentSizing">
+//           <div className="pledgeTextFont" id="pledgeNotAvailable">Reward no longer available</div>
+//         </div>
+//       );
