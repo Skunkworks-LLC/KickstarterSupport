@@ -10,7 +10,7 @@ const pledgeListSchema = new mongoose.Schema({
     pledgeTitle: String,
     pledgeDescription: String,
     pledgeRewards: [String],
-    estimatedShipping: Date,
+    estimatedShipping: String,
     validLocations: [String],
     pledgeBackers: Number,
   }],
