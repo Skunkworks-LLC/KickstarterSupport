@@ -3,8 +3,11 @@ const path = require('path');
 const models = require('./../database/model.js');
 
 const app = express();
-const usePath = path.join(__dirname, '/../client/dist');
-app.use(express.json(), express.urlencoded({ extended: true }), express.static(usePath));
+// const distFolder = path.join(__dirname, '/../client/dist');
+
+const publicFolder = path.join(__dirname, '/../public');
+app.use(express.json(), express.urlencoded({ extended: true }));
+app.use(express.static(publicFolder));
 
 app.get('/projects/:id', (req, res) => {
   const projectId = req.params.id;
