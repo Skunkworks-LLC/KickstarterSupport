@@ -3,6 +3,8 @@ import React from 'react';
 import path from 'path';
 import Pledge from './Pledge';
 import PledgeInput from './PledgeInput';
+import './styles/pledgeList.css';
+import './styles/fonts/MaisonNeue/fonts.css';
 
 class PledgeList extends React.Component {
   constructor(props) {
