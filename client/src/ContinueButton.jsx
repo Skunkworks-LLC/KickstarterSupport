@@ -10,6 +10,7 @@ class ContinueButton extends React.Component {
     return (
       <button
         className="inputButton pledgeBoxComponentSizing"
+        id="continueButton"
         type="button"
       >
         Continue
