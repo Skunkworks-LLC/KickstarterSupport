@@ -25,18 +25,16 @@ class Pledge extends React.Component {
     });
   }
 
-
-
-
   render() {
-    const { pledgeInfo } = this.props;
+    const { pledgeInfo, shipsToAnywhere, validLocations } = this.props;
     const {
       minimumPledgeAmount, pledgeTitle, pledgeDescription, pledgeRewards,
-      estimatedShipping, validLocations, available, pledgeBackers,
+      estimatedShipping, available, pledgeBackers,
     } = pledgeInfo;
     const { pledgeBoxClasses } = this.state;
 
     const addCustomerInputBoxes = this.addCustomerInputBoxes.bind(this);
+
     return (
       <div className="outsideBox">
         {available
@@ -55,7 +53,7 @@ class Pledge extends React.Component {
             Includes:
               {pledgeRewards.map((reward, index) => <li key={index} className="listItem">{reward}</li>)}
           </ul>
-          <ShippingInfo estimatedShipping={estimatedShipping} validLocations={validLocations} />
+          <ShippingInfo estimatedShipping={estimatedShipping} shipsToAnywhere={shipsToAnywhere} validLocations={validLocations} />
           <Availability availability={available} numBackers={pledgeBackers} />
           {
             this.state.customerInputBoxes

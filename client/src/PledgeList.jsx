@@ -14,7 +14,6 @@ class PledgeList extends React.Component {
     };
   }
 
-  //cool
   componentWillMount(currentProjectId = 1) {
     const projectUrl = path.join('/projects/', currentProjectId.toString());
 
@@ -28,14 +27,23 @@ class PledgeList extends React.Component {
     }).catch(err => console.error(err));
   }
 
-  importData({ projectId, projectName, pledges }) {
-    this.setState({ projectId, projectName, pledges });
+  importData({ projectId, projectName, shipToAnywhere, validLocations, pledges }) {
+    this.setState({ projectId, projectName, shipToAnywhere, validLocations, pledges });
   }
 
   render() {
-    const { pledges } = this.state;
+    const { pledges, shipToAnywhere, validLocations } = this.state;
     const Pledges = (pledges && pledges.length !== 0)
-      ? pledges.map((pledge, index) => <Pledge pledgeInfo={pledge} key={index} />)
+      ? pledges.map(
+        (pledge, index) => (
+          <Pledge
+            pledgeInfo={pledge}
+            shipToAnywhere={shipToAnywhere}
+            validLocations={validLocations}
+            key={index}
+          />
+        )
+      )
       : <div>Invalid Product Page</div>;
     return (
       <div>

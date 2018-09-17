@@ -7,9 +7,12 @@ class ShippingInfo extends React.Component {
   }
 
   render() {
-    const { estimatedShipping, validLocations } = this.props;
+    const { estimatedShipping, shipsToAnywhere, validLocations } = this.props;
     const options = validLocations.map((location, index) => <option value={location.toUpperCase()} key={index}>{location.toUpperCase()}</option>);
 
+    const shipsTo = shipsToAnywhere
+      ? <span style={{ 'color': 'black' }}>Anywhere in the world</span>
+      : <span style={{ 'color': 'black' }}>Only certain countries</span>;
     return (
       <div className="shippingInfoContainer pledgeBoxComponentSizing">
         <div className="shippingInfo" id="estimatedShipping">
@@ -17,11 +20,8 @@ class ShippingInfo extends React.Component {
           <span syle={{ 'color': 'black' }}>{estimatedShipping}</span>
         </div>
         <div className="shippingInfo">
-          <label htmlFor="validLocations" className="pledgeSubheaderTitle noBottomMargin">SHIPS TO</label>
-          <br />
-          <select className="shippingInfo" id="validLocations">
-            {options}
-          </select>
+          <div className="pledgeSubheaderTitle noBottomMargin">SHIPS TO</div>
+          {shipsTo}
         </div>
       </div >
     );
