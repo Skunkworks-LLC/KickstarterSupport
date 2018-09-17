@@ -4,14 +4,15 @@ const db = require('./connection.js');
 const pledgeListSchema = new mongoose.Schema({
   projectId: Number,
   projectName: String,
+  shipToAnywhere: Boolean,
+  validLocations: [String],
   pledges: [{
     available: Boolean,
     minimumPledgeAmount: Number,
     pledgeTitle: String,
     pledgeDescription: String,
     pledgeRewards: [String],
-    estimatedShipping: Date,
-    validLocations: [String],
+    estimatedShipping: String,
     pledgeBackers: Number,
   }],
 });

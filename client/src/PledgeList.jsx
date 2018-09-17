@@ -2,6 +2,7 @@ import axios from 'axios';
 import React from 'react';
 import path from 'path';
 import Pledge from './Pledge';
+import PledgeInput from './PledgeInput';
 
 class PledgeList extends React.Component {
   constructor(props) {
@@ -14,7 +15,7 @@ class PledgeList extends React.Component {
   }
 
   componentWillMount(currentProjectId = 1) {
-    const projectUrl = path.join('/project/', currentProjectId.toString());
+    const projectUrl = path.join('/projects/', currentProjectId.toString());
 
     axios({
       method: 'get',
@@ -26,16 +27,30 @@ class PledgeList extends React.Component {
     }).catch(err => console.error(err));
   }
 
-  importData({ projectId, projectName, pledges }) {
-    this.setState({ projectId, projectName, pledges });
+  importData({ projectId, projectName, shipToAnywhere, validLocations, pledges }) {
+    this.setState({ projectId, projectName, shipToAnywhere, validLocations, pledges });
   }
 
   render() {
-    const { pledges } = this.state;
+    const { pledges, shipToAnywhere, validLocations } = this.state;
     const Pledges = (pledges && pledges.length !== 0)
-      ? pledges.map((pledge, index) => <Pledge pledgeInfo={pledge} key={index} />)
+      ? pledges.map(
+        (pledge, index) => (
+          <Pledge
+            pledgeInfo={pledge}
+            shipToAnywhere={shipToAnywhere}
+            validLocations={validLocations}
+            key={index}
+          />
+        )
+      )
       : <div>Invalid Product Page</div>;
-    return Pledges;
+    return (
+      <div>
+        <PledgeInput />
+        {Pledges}
+      </div>
+    );
   }
 }
 
