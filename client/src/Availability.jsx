@@ -20,9 +20,9 @@ class Availability extends React.Component {
       );
 
     return (
-      <div className="pledgeSubheaderFont pledgeBoxComponentSizing" id="alightLeft">
+      <div className="pledgeSubheaderFont pledgeBoxComponentSizing alignLeft">
         {Status}
-        <div className="noBottomMargin pledgeBoxComponentSizing">
+        <div className="pledgeBoxComponentSizing" style={{ 'marginBottom': '10px' }}>
           {numBackers + ' '}
           <span> backers</span>
         </div>
