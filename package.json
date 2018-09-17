@@ -10,18 +10,17 @@
     "node": ">=6.13.0"
   },
   "jest": {
-    "setupTestFrameworkScriptFile": "./node_modules/jest-enzyme/lib/index.js",
-    "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
-      "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
-    }
+    "setupTestFrameworkScriptFile": "<rootDir>/client/src/test/helpers.js",
+    "testPathIgnorePatterns": [
+      "<rootDir>/client/src/test/helpers.js"
+    ]
   },
   "scripts": {
     "start": "nodemon server/server.js",
     "build": "webpack --watch -d",
     "populateData": "node ./database/dataGenerator.js",
-    "test": "jest --verbose",
-    "test:watch": "npm run test -- --watch"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -40,9 +39,11 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0",
-    "@babel/core": "^7.0.0",
+    "@babel/core": "^7.0.1",
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.2",
     "css-loader": "^1.0.0",
     "enzyme": "^3.6.0",
@@ -51,6 +52,7 @@
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.11.1",
+    "file-loader": "^2.0.0",
     "json-schema-faker": "^0.5.0-rc15",
     "react-test-renderer": "^16.5.0",
     "style-loader": "^0.23.0",
