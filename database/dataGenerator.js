@@ -41,6 +41,15 @@ const fakePledge = (minPledgeSoFar, maxBackersSoFar) => (
       faker.commerce.product(),
     ],
     estimatedShipping: deliveryMonth(),
+    pledgeBackers: faker.random.number({ min: 0, max: (maxBackersSoFar + 25) }),
+  }
+);
+
+const fakePledgeList = (pledges, index) => (
+  {
+    projectId: index,
+    projectName: faker.commerce.productName(),
+    shipToAnywhere: faker.random.boolean(),
     validLocations: [
       faker.random.locale(),
       faker.random.locale(),
@@ -53,14 +62,6 @@ const fakePledge = (minPledgeSoFar, maxBackersSoFar) => (
       faker.random.locale(),
       faker.random.locale(),
     ],
-    pledgeBackers: faker.random.number({ min: 0, max: (maxBackersSoFar + 25) }),
-  }
-);
-
-const fakePledgeList = (pledges, index) => (
-  {
-    projectId: index,
-    projectName: faker.commerce.productName(),
     pledges,
   }
 );
