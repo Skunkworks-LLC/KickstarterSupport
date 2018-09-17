@@ -2,6 +2,7 @@ import React from 'react';
 import InputBox from './InputBox';
 import ContinueButton from './ContinueButton';
 
+
 class PledgeInput extends React.Component {
   static buttonClickHandler() {
     console.log('Clicked the button need to add create account page');

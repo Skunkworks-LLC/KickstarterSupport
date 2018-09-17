@@ -19,9 +19,13 @@ module.exports = {
       {
         test: [/\.css$/],
         loader: 'css-loader',
-        query: {
-          modules: true,
-          localIdentName: '[name]__[local]___[hash:base64:5]'
+      },
+      {
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        loader: 'file-loader',
+        options: {
+          name: '[name].[ext]',
+          outputPath: 'fonts/',
         },
       },
     ],
@@ -31,6 +35,6 @@ module.exports = {
   },
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, './client/dist'),
+    path: path.resolve(__dirname, './public/dist'),
   },
 };

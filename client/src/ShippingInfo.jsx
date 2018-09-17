@@ -7,8 +7,7 @@ class ShippingInfo extends React.Component {
   }
 
   render() {
-    const { estimatedShipping, shipsToAnywhere, validLocations } = this.props;
-    const options = validLocations.map((location, index) => <option value={location.toUpperCase()} key={index}>{location.toUpperCase()}</option>);
+    const { estimatedShipping, shipsToAnywhere } = this.props;
 
     const shipsTo = shipsToAnywhere
       ? <span style={{ 'color': 'black' }}>Anywhere in the world</span>

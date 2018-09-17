@@ -35,6 +35,7 @@ class Pledge extends React.Component {
 
     const addCustomerInputBoxes = this.addCustomerInputBoxes.bind(this);
 
+    const options = validLocations.map((location, index) => <option value={location.toUpperCase()} key={index}>{location.toUpperCase()}</option>);
     return (
       <div className="outsideBox">
         {available
@@ -53,12 +54,17 @@ class Pledge extends React.Component {
             Includes:
               {pledgeRewards.map((reward, index) => <li key={index} className="listItem">{reward}</li>)}
           </ul>
-          <ShippingInfo estimatedShipping={estimatedShipping} shipsToAnywhere={shipsToAnywhere} validLocations={validLocations} />
+          <ShippingInfo estimatedShipping={estimatedShipping} shipsToAnywhere={shipsToAnywhere} />
           <Availability availability={available} numBackers={pledgeBackers} />
           {
-            this.state.customerInputBoxes
+            this.state.customerInputBoxes && available
               ? (
-                <div className="inputBoxesContainer">
+                <div className="inputBoxesContainer alignLeft">
+                  <div className="pledgeSubheaderFont pledgeBoxComponentSizing" >Shipping destination</div>
+                  <select className="pledgeBoxComponentSizing" id="validLocations" >
+                    {options}
+                  </select>
+                  <div className="pledgeSubheaderFont pledgeBoxComponentSizing">Pledge amount</div>
                   <InputBox />
                   <ContinueButton />
                 </div>
