@@ -29,7 +29,7 @@ class PledgeInput extends React.Component {
   render() {
     const onChangeInputBarHandler = this.onChangeInputBarHandler.bind(this);
     return (
-      <div className="pledgeBoxContainer">
+      <div className="pledgeBoxContainer" id="inputContainer">
         <div className="pledgeBoxHeaderFont pledgeBoxComponentSizing">Make a pledge without a reward</div>
         <InputBox onChangeInputBarHandler={onChangeInputBarHandler} />
         <ContinueButton />
