@@ -8,8 +8,7 @@ class InputBox extends React.Component {
   }
 
   render() {
-    let { onChangeInputBarHandler } = this.props;
-    onChangeInputBarHandler = onChangeInputBarHandler.bind(this);
+    const { onChangeInputBarHandler } = this.props;
     return (
       <div className="inputBarContainer pledgeBoxComponentSizing">
         <div className="inputCurrency" id="currency">$</div>
