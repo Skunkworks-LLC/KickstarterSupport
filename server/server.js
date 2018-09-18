@@ -1,12 +1,13 @@
 const express = require('express');
 const path = require('path');
+const cors  = require('cors');
 const models = require('./../database/model.js');
 
 const app = express();
 // const distFolder = path.join(__dirname, '/../client/dist');
 
 const publicFolder = path.join(__dirname, '/../public');
-app.use(express.json(), express.urlencoded({ extended: true }));
+app.use(express.json(), express.urlencoded({ extended: true }), cors());
 app.use(express.static(publicFolder));
 
 app.get('/projects/:id', (req, res) => {
@@ -33,6 +34,6 @@ app.post('/', (req, res) => {
   res.send('Nothing was posted');
 });
 
-app.listen(3000, () => {
-  console.log('server is listening at port 3000');
+app.listen(3005, () => {
+  console.log('server is listening at port 3005');
 });
