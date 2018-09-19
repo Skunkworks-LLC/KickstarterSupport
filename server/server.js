@@ -19,9 +19,9 @@ app.get('/:id', (req, res) => {
   });
 });
 
-app.get('/', (req, res) => {
-  res.send('');
-});
+// app.get('/', (req, res) => {
+//   res.send('');
+// });
 
 app.post('/', (req, res) => {
   res.send('Nothing was posted');
