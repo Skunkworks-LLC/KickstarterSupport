@@ -4,18 +4,21 @@ const cors  = require('cors');
 const models = require('./../database/model.js');
 
 const app = express();
-// const distFolder = path.join(__dirname, '/../client/dist');
 
 const publicFolder = path.join(__dirname, '/../public');
 app.use(express.json(), express.urlencoded({ extended: true }), cors());
 app.use(express.static(publicFolder));
+app.use('/projects/*', express.static(publicFolder));
 
-app.get('/projects/:id', (req, res) => {
+app.get('/getProjectInfo/:id', (req, res) => {
+  // const projectId = req.params.id === undefined ? req.params.id : 1;
   const projectId = req.params.id;
+  // console.log('heres the projectId', projectId);
   models.queryOne(projectId, (err, pledgeList) => {
     if (err) {
       return console.error(err);
     }
+    // console.log('heres the first pledgeList item', pledgeList[0]);
     return res.send(pledgeList[0]);
   });
 });
