@@ -2,7 +2,10 @@ const mongoose = require('mongoose');
 const db = require('./connection.js');
 
 const pledgeListSchema = new mongoose.Schema({
-  projectId: Number,
+  projectId: {
+    type: 'Number',
+    unique: true,
+  },
   projectName: String,
   shipToAnywhere: Boolean,
   validLocations: [String],

@@ -18,12 +18,14 @@ class PledgeList extends React.Component {
 
   componentWillMount() {
     const pathname = window.location.pathname;
-    const currentProjectId = pathname.slice(10) !== '' ? pathname.slice(10) : -1;
-    const projectUrl = path.join('/', currentProjectId.toString());
+    const projectNumberRegex = /\d+/;
+    const currentProjectId = pathname.slice(10).match(projectNumberRegex)[0];
+    const projectUrl = path.join('/support/', currentProjectId);
 
     axios({
       method: 'get',
       url: projectUrl,
+      baseURL: window.location.origin,
       contentType: 'application.json',
       data: JSON.stringify({ currentProjectId }),
     }).then(({ data }) => {

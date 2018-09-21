@@ -10,7 +10,7 @@ app.use(express.json(), express.urlencoded({ extended: true }), cors());
 app.use(express.static(publicFolder));
 app.use('/projects/*', express.static(publicFolder));
 
-app.get('/:id', (req, res) => {
+app.get('/support/:id', (req, res) => {
   const projectId = req.params.id;
   models.queryOne(projectId, (err, pledgeList) => {
     if (err) {
@@ -20,14 +20,15 @@ app.get('/:id', (req, res) => {
   });
 });
 
-// app.get('/', (req, res) => {
-//   res.send('');
-// });
+app.get('/', (req, res) => {
+  res.send('');
+});
 
 app.post('/', (req, res) => {
   res.send('Nothing was posted');
 });
 
-app.listen(3005, () => {
-  console.log('server is listening at port 3005');
+
+app.listen(3003, () => {
+  console.log('server is listening at port 3003');
 });
