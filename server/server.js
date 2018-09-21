@@ -19,8 +19,6 @@ app.get('/support/:id', (req, res) => {
   });
 });
 
-
-
 app.get('/', (req, res) => {
   res.send('');
 });
