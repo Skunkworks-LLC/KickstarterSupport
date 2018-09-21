@@ -1,3 +1,4 @@
+/*
 // const jsf = require('json-schema-faker');
 const faker = require('faker');
 const mongoose = require('mongoose');
@@ -102,6 +103,9 @@ const SaveAllPledgeLists = () => {
 SaveAllPledgeLists();
 // deliveryDate();
 // deliveryMonth();
+
+
+*/
 
 // module.exports = fakePledgeList;
 
