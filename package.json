@@ -16,8 +16,9 @@
     ]
   },
   "scripts": {
-    "start": "nodemon server/server.js",
-    "build": "webpack --watch -d",
+    "start": "node server/server.js",
+    "build": "webpack --watch -d --config webpack.development.config.js",
+    "build:prod": "webpack --watch -d --config webpack.production.config.js",
     "populateData": "node ./database/dataGenerator.js",
     "test": "jest",
     "test:watch": "jest --watch"
@@ -25,12 +26,9 @@
   "dependencies": {
     "axios": "^0.18.0",
     "cors": "^2.8.4",
-    "enzyme": "^3.6.0",
     "enzyme-adapter-react-16": "^1.5.0",
     "express": "^4.16.3",
     "faker": "^4.1.0",
-    "jest": "^23.5.0",
-    "jest-enzyme": "^6.0.4",
     "moment": "^2.22.2",
     "mongodb": "^3.1.4",
     "mongoose": "^5.2.13",
