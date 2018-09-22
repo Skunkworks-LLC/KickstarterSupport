@@ -1,11 +1,12 @@
 const express = require('express');
 const path = require('path');
+const cors  = require('cors');
 const models = require('./../database/model.js');
 
 const app = express();
 
 const publicFolder = path.join(__dirname, '/../public');
-app.use(express.json(), express.urlencoded({ extended: true }));
+app.use(express.json(), express.urlencoded({ extended: true }), cors());
 app.use(express.static(publicFolder));
 app.use('/projects/*', express.static(publicFolder));
 
@@ -26,6 +27,7 @@ app.get('/', (req, res) => {
 app.post('/', (req, res) => {
   res.send('Nothing was posted');
 });
+
 
 app.listen(3003, () => {
   console.log('server is listening at port 3003');
