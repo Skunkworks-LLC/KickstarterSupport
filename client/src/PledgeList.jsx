@@ -25,7 +25,6 @@ class PledgeList extends React.Component {
     axios({
       method: 'get',
       url: projectUrl,
-      baseURL: window.location.origin,
       contentType: 'application.json',
       data: JSON.stringify({ currentProjectId }),
     }).then(({ data }) => {
