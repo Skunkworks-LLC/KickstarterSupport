@@ -1,9 +1,12 @@
+/* global React */
+
 import React from 'react';
 import Availability from './Availability';
 import moment from 'moment';
 import ShippingInfo from './ShippingInfo';
 import InputBox from './InputBox';
 import ContinueButton from './ContinueButton';
+import { StyledPledgeListBox, StyledPledgeBox, StyledPledgeBoxComponent, StyledPledgeBoxComponentText } from './styles/styledPledgeBox';
 
 
 class Pledge extends React.Component {
@@ -11,7 +14,7 @@ class Pledge extends React.Component {
     super(props);
     this.state = {
       customerInputBoxes: false,
-      pledgeBoxClasses: "actualBox pledgeBoxContainer"
+      permanentBorder: false,
     };
   }
 
@@ -20,7 +23,7 @@ class Pledge extends React.Component {
       return (
         {
           customerInputBoxes: true,
-          pledgeBoxClasses: 'permanentBorder',
+          permanentBorder: true,
         });
     });
   }
@@ -31,18 +34,18 @@ class Pledge extends React.Component {
       minimumPledgeAmount, pledgeTitle, pledgeDescription, pledgeRewards,
       estimatedShipping, available, pledgeBackers,
     } = pledgeInfo;
-    const { pledgeBoxClasses } = this.state;
+    const { customerInputBoxes, permanentBorder } = this.state;
 
     const addCustomerInputBoxes = this.addCustomerInputBoxes.bind(this);
 
     const options = validLocations.map((location, index) => <option value={location.toUpperCase()} key={index}>{location.toUpperCase()}</option>);
     return (
-      <div className="outsideBox">
+      <StyledPledgeListBox>
         {available
           ? <div></div>
           : <div id="allGone">All gone!</div>
         }
-        <div className={pledgeBoxClasses} onClick={() => { addCustomerInputBoxes() }}>
+        <StyledPledgeBox onClick={() => { addCustomerInputBoxes(); }} permanentBorder={permanentBorder} available={available}>
           <div className="pledgeBoxHeaderFont pledgeAmount pledgeBoxComponentSizing">
             <span>Pledge US$</span>
             {minimumPledgeAmount}
@@ -57,7 +60,7 @@ class Pledge extends React.Component {
           <ShippingInfo estimatedShipping={estimatedShipping} shipsToAnywhere={shipsToAnywhere} />
           <Availability availability={available} numBackers={pledgeBackers} />
           {
-            this.state.customerInputBoxes && available
+            customerInputBoxes && available
               ? (
                 <div className="inputBoxesContainer alignLeft">
                   <div className="pledgeSubheaderFont pledgeBoxComponentSizing" >Shipping destination</div>
@@ -71,8 +74,8 @@ class Pledge extends React.Component {
               )
               : <div />
           }
-        </div>
-      </div>
+        </StyledPledgeBox>
+      </StyledPledgeListBox>
     );
   }
 }

@@ -3,6 +3,8 @@ import React from 'react';
 import path from 'path';
 import Pledge from './Pledge';
 import PledgeInput from './PledgeInput';
+import './styles/styledPledgeList';
+import './styles/styledPledgeBox';
 import './styles/pledgeList.css';
 import './styles/fonts/MaisonNeue/fonts.css';
 
