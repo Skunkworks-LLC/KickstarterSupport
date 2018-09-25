@@ -1,4 +1,6 @@
 import React from 'react';
+import { StyledInputBarContainer, StyledPledgeInputBar } from './styles/styledInputBox';
+
 
 class InputBox extends React.Component {
   constructor(props) {
@@ -10,7 +12,7 @@ class InputBox extends React.Component {
   render() {
     const { onChangeInputBarHandler } = this.props;
     return (
-      <div className="inputBarContainer pledgeBoxComponentSizing" style={{ 'marginTop': '5px' }}>
+      <StyledInputBarContainer>
         <div className="inputCurrency" id="currency">$</div>
         <input
           className="pledgeInputBar"
@@ -18,7 +20,7 @@ class InputBox extends React.Component {
           onChange={e => onChangeInputBarHandler(e)}
           defaultValue={10}
         />
-      </div>
+      </StyledInputBarContainer>
     );
   }
 }

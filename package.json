@@ -17,6 +17,7 @@
   },
   "scripts": {
     "start": "node server/server.js",
+    "start:nodemon": "nodemon server/server.js server/server.js",
     "build": "webpack --watch -d --config webpack.development.config.js",
     "build:prod": "webpack --watch -d --config webpack.production.config.js",
     "populateData": "node ./database/dataGenerator.js",
@@ -33,7 +34,8 @@
     "mongodb": "^3.1.4",
     "mongoose": "^5.2.13",
     "react": "^16.4.2",
-    "react-dom": "^16.4.2"
+    "react-dom": "^16.4.2",
+    "styled-components": "^3.4.9"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0",
@@ -42,6 +44,7 @@
     "@babel/preset-react": "^7.0.0",
     "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.2",
+    "babel-plugin-styled-components": "^1.7.1",
     "css-loader": "^1.0.0",
     "eslint": "^5.5.0",
     "eslint-config-airbnb": "^17.1.0",
@@ -50,6 +53,7 @@
     "eslint-plugin-react": "^7.11.1",
     "file-loader": "^2.0.0",
     "json-schema-faker": "^0.5.0-rc15",
+    "nodemon": "^1.18.4",
     "react-test-renderer": "^16.5.0",
     "style-loader": "^0.23.0",
     "webpack": "^4.17.2",

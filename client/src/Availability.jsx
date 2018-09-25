@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { StyledBoxComponent, StyledLeftSpan } from './styles/styledPledgeBox';
+
 class Availability extends React.Component {
   constructor(props) {
     super(props);
@@ -20,13 +22,12 @@ class Availability extends React.Component {
       );
 
     return (
-      <div className="pledgeSubheaderFont pledgeBoxComponentSizing alignLeft">
+      <StyledBoxComponent className="subHeaderFont">
         {Status}
-        <div className="pledgeBoxComponentSizing" style={{ 'marginBottom': '10px' }}>
-          {numBackers + ' '}
-          <span> backers</span>
-        </div>
-      </div>
+        <StyledBoxComponent>
+          <StyledLeftSpan>{numBackers + ' '} backers</StyledLeftSpan>
+        </StyledBoxComponent>
+      </StyledBoxComponent>
     );
   }
 }
