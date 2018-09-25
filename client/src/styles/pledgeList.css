@@ -42,40 +42,7 @@ button:focus, input:focus {
   margin-bottom: 30px;
 }
 
-.pledgeBoxContainer {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
 
-  margin-top: 3px;
-  padding-top: 10px;
-  padding-bottom: 5px;
-  border: 1.5px solid rgba(211,211,211, 0.5);
-  height: auto;
-  width: 350px;
-  -webkit-background-clip: padding-box; /* for Safari */
-  background-clip: padding-box; /* for IE9+, Firefox 4+, Opera, Chrome */
-}
-
-  .pledgeBoxContainer:hover {
-    border: 1.5px solid rgba(0,0,0, 0.5);
-  }
-  
-  .permanentBorder {
-      display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    padding-bottom: 10px;
-    border: 1.5px solid rgba(211,211,211, 0.5);
-    height: auto;
-    width: 350px;
-    -webkit-background-clip: padding-box; /* for Safari */
-    background-clip: padding-box; /* for IE9+, Firefox 4+, Opera, Chrome */
-    border: 1.5px solid rgba(0,0,0, 0.5);
-  }
 
 /* --------- Full-length Component ---------- */
 
@@ -100,37 +67,9 @@ button:focus, input:focus {
   padding-bottom: 20px;
 }
 
-#pledgeRewards {
-  line-height: auto;
-  /* margin: 0px 0px 0px 0px; */
-  padding: 0px 0px 0px 0px;
-}
-
 /* ---------- Shipping Info ---------- */
 
-.shippingInfoContainer {
-  display: flex;
-  flex-direction: row;
-  align-content: flex-start;
-  margin-top: 10px;
-}
 
-  .shippingInfo {
-    flex-basis: 50%;
-    align-content: flex-start;
-    line-height: 18px;
-  }
-
-#validLocations {
-  height: 40px;
-  border-radius: 0px;
-  border: 1.5px solid rgba(211,211,211, 0.5);
-  margin-top: 5px;
-}
-
-#validLocations:focus {
-  outline: none;
-}
 /* ------------- Availability ------------- */
 
 
@@ -146,6 +85,7 @@ button:focus, input:focus {
 }
 
 .alignLeft {
+
   justify-content: flex-start;
   align-content: flex-start;
 }
@@ -228,46 +168,16 @@ button:focus, input:focus {
 
 /* ---------- Font ------------- */
 
-#allGone {
+/* #allGone {
   font-size: 20px;
   font-weight: bold; 
   pointer-events: none;
   disabled: true;
-}
+} */
 
-.outsideBox .pledgeTitle {
+.pledgeTitle {
   margin-top: 25px;
 }
 
-.pledgeBoxHeaderFont {
-  font-size: 18px;
-  /* line-height: 1.4; */
-}
 
-.pledgeSubheaderFont {
-  font-size: 14px;
-  color: rgba(160,160,160, 1.5);
-}
 
-.pledgeSubheaderTitle {
-  font-size: 11px;
-  color: rgba(160,160,160, 1.5); 
-}
-
-.pledgeBoxComponentSizing .listItem {
-  color: black;
-  line-height: 20px;
-  flex-basis: 50%;
-  font-size: 16px;
-  font-weight: 400;
-  vertical-align: middle;
-  position: relative;
-  right: -10%;
-  top: 1px;
-}
-
-/* ---------- Misc ------------- */
-
-body .outsideBox .noBottomMargin {
-  margin-bottom: none;
-}
