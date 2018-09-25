@@ -1,6 +1,7 @@
 import React from 'react';
 import InputBox from './InputBox';
 import ContinueButton from './ContinueButton';
+import { StyledInputBox } from './styles/styledPledgeInput';
 
 
 class PledgeInput extends React.Component {
@@ -30,11 +31,11 @@ class PledgeInput extends React.Component {
   render() {
     const onChangeInputBarHandler = this.onChangeInputBarHandler.bind(this);
     return (
-      <div className="pledgeBoxContainer" id="inputContainer">
-        <div className="pledgeBoxHeaderFont pledgeBoxComponentSizing">Make a pledge without a reward</div>
+      <StyledInputBox id="inputContainer">
+        <div className="headerFont pledgeBoxComponentSizing">Make a pledge without a reward</div>
         <InputBox onChangeInputBarHandler={onChangeInputBarHandler} />
         <ContinueButton />
-      </div>
+      </StyledInputBox>
     );
   }
 }

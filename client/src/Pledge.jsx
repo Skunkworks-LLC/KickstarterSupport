@@ -6,7 +6,17 @@ import moment from 'moment';
 import ShippingInfo from './ShippingInfo';
 import InputBox from './InputBox';
 import ContinueButton from './ContinueButton';
-import { StyledPledgeListBox, StyledPledgeBox, StyledPledgeBoxComponent, StyledPledgeBoxComponentText } from './styles/styledPledgeBox';
+import {
+  StyledPledgeListBox,
+  StyledPledgeBox,
+  StyledBoxComponent,
+  StyledLeftSpan,
+  StyledUnorderedList,
+  StyledListItem,
+  StyledBoxComponentText,
+  StyledSelect,
+  StyledGreenPledgeBox,
+} from './styles/styledPledgeBox';
 
 
 class Pledge extends React.Component {
@@ -46,34 +56,41 @@ class Pledge extends React.Component {
           : <div id="allGone">All gone!</div>
         }
         <StyledPledgeBox onClick={() => { addCustomerInputBoxes(); }} permanentBorder={permanentBorder} available={available}>
-          <div className="pledgeBoxHeaderFont pledgeAmount pledgeBoxComponentSizing">
-            <span>Pledge US$</span>
-            {minimumPledgeAmount}
-            <span> or more</span>
-          </div>
-          <div className="pledgeBoxHeaderFont pledgeTitle pledgeBoxComponentSizing">{pledgeTitle}</div>
-          <div className="pledgeSubheaderFont pledgeBoxComponentTextSizing" id="pledgeDescription">{pledgeDescription}</div>
-          <ul className="pledgeSubheaderFont pledgeBoxComponentSizing" id="pledgeRewards">
-            Includes:
-              {pledgeRewards.map((reward, index) => <li key={index} className="listItem">{reward}</li>)}
-          </ul>
-          <ShippingInfo estimatedShipping={estimatedShipping} shipsToAnywhere={shipsToAnywhere} />
-          <Availability availability={available} numBackers={pledgeBackers} />
-          {
-            customerInputBoxes && available
-              ? (
-                <div className="inputBoxesContainer alignLeft">
-                  <div className="pledgeSubheaderFont pledgeBoxComponentSizing" >Shipping destination</div>
-                  <select className="pledgeBoxComponentSizing" id="validLocations" >
-                    {options}
-                  </select>
-                  <div className="pledgeSubheaderFont pledgeBoxComponentSizing">Pledge amount</div>
-                  <InputBox />
-                  <ContinueButton />
-                </div>
-              )
-              : <div />
-          }
+          <StyledGreenPledgeBox className="inFront" available={available} customerInputBoxes={customerInputBoxes}>
+            <div className="text">Text is here</div>
+            <div style={{ visibility: 'visible' }}>
+              <StyledBoxComponent className="headerFont">
+                <StyledLeftSpan>Pledge US${minimumPledgeAmount} or more</StyledLeftSpan>
+              </StyledBoxComponent>
+              <StyledBoxComponent className="headerFont pledgeTitle">
+                <StyledLeftSpan>{pledgeTitle}</StyledLeftSpan>
+              </StyledBoxComponent>
+              <StyledBoxComponentText className="subHeaderFont">{pledgeDescription}</StyledBoxComponentText>
+              <StyledUnorderedList className="subHeaderFont">
+                Includes:
+              {pledgeRewards.map((reward, index) => <StyledListItem key={index} className="listItem">{reward}</StyledListItem>)}
+              </StyledUnorderedList>
+              <ShippingInfo estimatedShipping={estimatedShipping} shipsToAnywhere={shipsToAnywhere} />
+              <Availability availability={available} numBackers={pledgeBackers} />
+              {
+                customerInputBoxes && available
+                  ? (
+                    <StyledBoxComponent className="inputBoxesContainer">
+                      <StyledBoxComponent className="subHeaderFont" >
+                        <StyledLeftSpan>Shipping destination</StyledLeftSpan>
+                      </StyledBoxComponent>
+                      <StyledSelect>{options}</StyledSelect>
+                      <StyledBoxComponent className="subHeaderFont">
+                        <StyledLeftSpan>Pledge amount</StyledLeftSpan>
+                      </StyledBoxComponent>
+                      <InputBox />
+                      <ContinueButton />
+                    </StyledBoxComponent>
+                  )
+                  : <div />
+              }
+            </div>
+          </StyledGreenPledgeBox>
         </StyledPledgeBox>
       </StyledPledgeListBox>
     );
