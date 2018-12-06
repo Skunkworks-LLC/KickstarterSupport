@@ -7,7 +7,7 @@ import ShippingInfo from './ShippingInfo';
 import InputBox from './InputBox';
 import ContinueButton from './ContinueButton';
 import {
-  StyledPledgeListBox,
+  PledgeListBox,
   StyledPledgeBox,
   StyledBoxComponent,
   StyledLeftSpan,
@@ -50,7 +50,7 @@ class Pledge extends React.Component {
 
     const options = validLocations.map((location, index) => <option value={location.toUpperCase()} key={index}>{location.toUpperCase()}</option>);
     return (
-      <StyledPledgeListBox>
+      <PledgeListBox>
         {available
           ? <div></div>
           : <div id="allGone">All gone!</div>
@@ -92,7 +92,7 @@ class Pledge extends React.Component {
             </div>
           </StyledGreenPledgeBox>
         </StyledPledgeBox>
-      </StyledPledgeListBox>
+      </PledgeListBox>
     );
   }
 }
